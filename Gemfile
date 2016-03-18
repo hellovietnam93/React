@@ -14,7 +14,6 @@ gem "bootstrap-sass"
 gem "i18n-js", ">= 3.0.0.rc11"
 gem "devise"
 gem "cancancan"
-gem "rails-api"
 gem "active_model_serializers"
 gem "thin"
 

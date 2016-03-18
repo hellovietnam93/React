@@ -8,7 +8,6 @@ en:
       credit: "Credit"
       debit: "Debit"
       balance: "Balance"
-      action: "Actions"
     actions:
       create: "Create record"
       delete: "Delete"

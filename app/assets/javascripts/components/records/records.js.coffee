@@ -67,7 +67,7 @@
             React.DOM.th null, I18n.t('records.headers.date')
             React.DOM.th null, I18n.t('records.headers.title')
             React.DOM.th null, I18n.t('records.headers.amount')
-            React.DOM.th null, I18n.t('records.headers.action')
+            React.DOM.th null, I18n.t('application.action')
         React.DOM.tbody null,
           unless @state.records is undefined
             for record in @state.records

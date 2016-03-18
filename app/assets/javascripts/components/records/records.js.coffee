@@ -31,6 +31,13 @@
   balance: ->
     @debits() + @credits()
 
+  deleteRecord: (record) ->
+    unless @state.records is undefined
+      records = @state.records.slice()
+      index = records.indexOf record
+      records.splice index, 1
+      @replaceState records: records
+
   render: ->
     React.DOM.div
       className: 'records'
@@ -55,7 +62,8 @@
             React.DOM.th null, I18n.t('records.headers.date')
             React.DOM.th null, I18n.t('records.headers.title')
             React.DOM.th null, I18n.t('records.headers.amount')
+            React.DOM.th null, I18n.t('records.headers.action')
         React.DOM.tbody null,
           unless @state.records is undefined
             for record in @state.records
-              React.createElement Record, key: record.id, record: record
+              React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord

@@ -11,9 +11,21 @@
 
   addRecord: (record) ->
     unless @state.records is undefined
-      records = @state.records.slice()
-      records.push record.record
+      records = React.addons.update(@state.records, {$push: [record.record]})
       @setState records: records
+
+  updateRecord: (record, data) ->
+    unless @state.records is undefined
+      index = @state.records.indexOf record
+      records = React.addons.update(@state.records, {$splice: [[index, 1, data.record]]})
+      @replaceState records: records
+
+  deleteRecord: (record) ->
+    unless @state.records is undefined
+      index = @state.records.indexOf record.record
+      records = React.addons.update(@state.records, {$splice: [[index, 1]]})
+      @replaceState records: records
+
   credits: ->
     unless @state.records is undefined
       credits = @state.records.filter (val) -> val.amount >= 0
@@ -30,13 +42,6 @@
 
   balance: ->
     @debits() + @credits()
-
-  deleteRecord: (record) ->
-    unless @state.records is undefined
-      records = @state.records.slice()
-      index = records.indexOf record
-      records.splice index, 1
-      @replaceState records: records
 
   render: ->
     React.DOM.div
@@ -66,4 +71,4 @@
         React.DOM.tbody null,
           unless @state.records is undefined
             for record in @state.records
-              React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord
+              React.createElement Record, key: record.id, record: record, handleDeleteRecord: @deleteRecord, handleEditRecord: @updateRecord

@@ -26,5 +26,6 @@ module AppMaster
     config.middleware.use I18n::JS::Middleware
     config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**",
       "*.{rb,yml}")]
+    config.react.addons = true
   end
 end

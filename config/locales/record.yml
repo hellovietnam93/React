@@ -12,3 +12,6 @@ en:
     actions:
       create: "Create record"
       delete: "Delete"
+      edit: "Edit"
+      update: "Update"
+      cancel: "Cancel"

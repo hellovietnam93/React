@@ -1,0 +1,12 @@
+en:
+  records:
+    all: "Records"
+    headers:
+      date: "Date"
+      title: "Title"
+      amount: "Amount"
+      credit: "Credit"
+      debit: "Debit"
+      balance: "Balance"
+    actions:
+      create: "Create record"

@@ -27,7 +27,7 @@
           React.DOM.input
             type: 'text'
             className: 'form-control'
-            placeholder: 'Date'
+            placeholder: I18n.t('records.headers.date')
             name: 'date'
             value: @state.date
             onChange: @handleChange
@@ -36,7 +36,7 @@
           React.DOM.input
             type: 'text'
             className: 'form-control'
-            placeholder: 'Title'
+            placeholder: I18n.t('records.headers.title')
             name: 'title'
             value: @state.title
             onChange: @handleChange
@@ -45,7 +45,7 @@
           React.DOM.input
             type: 'number'
             className: 'form-control'
-            placeholder: 'Amount'
+            placeholder: I18n.t('records.headers.amount')
             name: 'amount'
             value: @state.amount
             onChange: @handleChange
@@ -53,4 +53,4 @@
           type: 'submit'
           className: 'btn btn-primary'
           disabled: !@valid()
-          'Create record'
+          I18n.t('records.actions.create')

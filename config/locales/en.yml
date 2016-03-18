@@ -1,6 +1,7 @@
 en:
   application:
     base_title: "React"
+    action: "Actions"
   flashs:
     messages:
       created: "%{model_name} was created successfully!"

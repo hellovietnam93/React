@@ -1,3 +1,8 @@
 en:
   users:
     user: "Users"
+    titles:
+      sign_in: "Sign in"
+      sign_up: "Sign up"
+      account: "Account"
+      sign_out: "Sign out"

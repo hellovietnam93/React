@@ -16,6 +16,7 @@ gem "devise"
 gem "cancancan"
 gem "active_model_serializers"
 gem "thin"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "pry"

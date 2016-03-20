@@ -7,8 +7,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render "layouts/header" %>
+    <%= react_component "Header" %>
     <%= render "layouts/flash" %>
-    <%= yield %>
+    <div class="container-fluid">
+      <%= yield %>
+    </div>
   </body>
 </html>

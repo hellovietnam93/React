@@ -24,7 +24,7 @@
       React.DOM.li
         className: 'users'
         React.DOM.a
-          href: ' '
+          href: 'http://localhost:3000/users'
           I18n.t('users.user')
       React.DOM.li
         className: 'records'
@@ -50,14 +50,14 @@
           React.DOM.li
             className: 'profile'
             React.DOM.a
-              href: ' '
+              href: 'http://localhost:3000/users/' + getAuthData().auth.user.id
               React.DOM.i
                 className: 'fa fa-user fa-tw'
               ' ' + I18n.t('users.titles.profile')
           React.DOM.li
             className: 'setting'
             React.DOM.a
-              href: ' '
+              href: 'http://localhost:3000/users/edit'
               React.DOM.i
                 className: 'fa fa-gear fa-tw'
               ' ' + I18n.t('users.titles.setting')

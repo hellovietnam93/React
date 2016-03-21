@@ -2,6 +2,7 @@
   getInitialState: ->
     is_signed_in: false
     is_admin: false
+    current_user: null
 
   componentWillMount: ->
     $.ajax
@@ -9,6 +10,7 @@
       url: 'http://localhost:3000/auth/is_signed_in'
       success: ((data) ->
         @setState is_signed_in: data.signed_in
+        @setState current_user: data.user
         return
       ).bind(this)
 
@@ -62,6 +64,8 @@
           'aria-expanded': false
           React.DOM.i
             className: 'fa fa-user fa-fw'
+          if @state.current_user != null
+            @state.current_user.email
           React.DOM.i
             className: 'fa fa-caret-down'
         React.DOM.ul

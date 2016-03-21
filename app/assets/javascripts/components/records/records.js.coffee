@@ -3,7 +3,7 @@
     records: undefined
 
   componentWillMount: ->
-    @serverRequest = $.getJSON('http://localhost:3000/api/records', ((json) ->
+    @serverRequest = $.getJSON('http://localhost:3000/records.json', ((json) ->
       @setState records: json.records
       return
     ).bind(this))

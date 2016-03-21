@@ -1,7 +1,11 @@
 class RecordsController < ApplicationController
-  before_action :find_record, only: [:update, :destroy]
+  load_and_authorize_resource
 
   def index
+    respond_to do |format|
+      format.html
+      format.json {render json: @records}
+    end
   end
 
   def create
@@ -29,9 +33,5 @@ class RecordsController < ApplicationController
   private
   def record_params
     params.require(:record).permit :title, :amount, :date
-  end
-
-  def find_record
-    @record = Record.find params[:id]
   end
 end

@@ -8,3 +8,8 @@ en:
       sign_out: "Sign out"
       profile: "Profile"
       setting: "Setting"
+    headers:
+      email: "Email"
+      password: "Password"
+      remember_me: "Remember me"
+      password_confirmation: "Password Confirmation"

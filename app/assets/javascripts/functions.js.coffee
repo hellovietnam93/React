@@ -1,4 +1,4 @@
-Functions = getMetaContent: (name) ->
+@getMetaContent = (name) ->
   metas = document.getElementsByTagName('meta')
   i = 0
   while i < metas.length
@@ -6,4 +6,14 @@ Functions = getMetaContent: (name) ->
       return metas[i].getAttribute('content')
     i++
   ''
-window.exports = Functions
+
+@getAuthData = () ->
+  response = null
+  $.ajax
+    method: 'GET'
+    url: 'http://localhost:3000/auth/is_signed_in'
+    async: false
+    success: ((data) ->
+      response = data
+    ).bind(this)
+  response

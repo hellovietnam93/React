@@ -13,7 +13,7 @@
 
     handleSubmit: (e) ->
       e.preventDefault()
-      $.post '/records', {record: @state}, (data) =>
+      $.post '/records', {record: @state, authenticity_token: getMetaContent("csrf-token")}, (data) =>
         @props.handleNewRecord data
         @setState @getInitialState()
       , 'JSON'

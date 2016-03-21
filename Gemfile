@@ -17,6 +17,7 @@ gem "cancancan"
 gem "active_model_serializers"
 gem "thin"
 gem "font-awesome-rails"
+gem "closure_tree"
 
 group :development, :test do
   gem "pry"

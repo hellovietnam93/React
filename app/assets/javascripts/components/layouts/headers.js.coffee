@@ -37,7 +37,9 @@
         className: 'sign-in'
         React.DOM.a
           href: 'http://localhost:3000/users/sign_in'
-          I18n.t('users.titles.sign_in')
+          React.DOM.i
+            className: 'fa fa-sign-in fa-tw'
+          ' ' + I18n.t('users.titles.sign_in')
   sign_in: ->
     React.DOM.ul
       className: 'nav navbar-nav navbar-right'
@@ -57,30 +59,38 @@
           className: 'dropdown-toggle'
           href: ' '
           'data-toggle': 'dropdown'
-          I18n.t('application.action')
-            React.DOM.b
-              className: 'caret'
+          'aria-expanded': false
+          React.DOM.i
+            className: 'fa fa-user fa-fw'
+          React.DOM.i
+            className: 'fa fa-caret-down'
         React.DOM.ul
           className: 'dropdown-menu'
           React.DOM.li
             className: 'divider'
           React.DOM.li
+            className: 'profile'
             React.DOM.a
-              className: 'a'
               href: ' '
-              'A'
+              React.DOM.i
+                className: 'fa fa-user fa-tw'
+              ' ' + I18n.t('users.titles.profile')
           React.DOM.li
+            className: 'setting'
             React.DOM.a
-              className: 'b'
               href: ' '
-              'B'
+              React.DOM.i
+                className: 'fa fa-gear fa-tw'
+              ' ' + I18n.t('users.titles.setting')
           React.DOM.li
             className: 'divider'
           React.DOM.li
             className: 'sign-out'
             React.DOM.a
               onClick: @handleSignout
-              I18n.t('users.titles.sign_out')
+              React.DOM.i
+                className: 'fa fa-sign-out fa-tw'
+              ' ' + I18n.t('users.titles.sign_out')
   render: ->
     React.DOM.nav
       className: 'navbar navbar-default navbar-static-top'

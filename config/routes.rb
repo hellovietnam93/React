@@ -6,4 +6,6 @@ Rails.application.routes.draw do
   end
   resources :records, except: [:new, :edit]
   root "records#index"
+
+  resources :users, only: [:index, :show]
 end

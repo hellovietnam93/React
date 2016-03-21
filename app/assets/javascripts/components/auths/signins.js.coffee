@@ -15,6 +15,7 @@
       url: "http://localhost:3000/users/sign_in"
       data:
         user: @state
+        authenticity_token: getMetaContent("csrf-token")
       success: ->
         location.reload()
         return

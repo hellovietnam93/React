@@ -1,28 +1,4 @@
 @Header = React.createClass
-  getInitialState: ->
-    is_signed_in: false
-    is_admin: false
-    current_user: null
-
-  componentWillMount: ->
-    $.ajax
-      method: 'GET'
-      url: 'http://localhost:3000/auth/is_signed_in'
-      success: ((data) ->
-        @setState is_signed_in: data.signed_in
-        @setState current_user: data.user
-        return
-      ).bind(this)
-
-    $.ajax
-      method: 'GET'
-      url: 'http://localhost:3000/auth/is_admin'
-      success: ((data) ->
-        @setState is_admin: data.admin
-        return
-      ).bind(this)
-    return
-
   handleSignout: (e) ->
     e.preventDefault()
     $.ajax
@@ -64,8 +40,7 @@
           'aria-expanded': false
           React.DOM.i
             className: 'fa fa-user fa-fw'
-          if @state.current_user != null
-            @state.current_user.email
+          getAuthData().auth.user.email
           React.DOM.i
             className: 'fa fa-caret-down'
         React.DOM.ul
@@ -107,7 +82,7 @@
             className: 'navbar-brand'
             href: 'http://localhost:3000'
             I18n.t('application.base_title')
-        if @state.is_signed_in
+        if getAuthData().auth.signed_in
           @sign_in()
         else
           @not_sign_in()

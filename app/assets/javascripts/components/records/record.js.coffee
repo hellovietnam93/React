@@ -18,6 +18,7 @@
       dataType: 'JSON'
       data:
         record: data
+        authenticity_token: getMetaContent("csrf-token")
       success: (data) =>
         @setState edit: false
         @props.handleEditRecord @props.record, data
@@ -27,6 +28,8 @@
     $.ajax
       method: 'DELETE'
       url: "/records/#{@props.record.id}"
+      data:
+        authenticity_token: getMetaContent("csrf-token")
       dataType: 'JSON'
       success: () =>
         @props.handleDeleteRecord @props.record

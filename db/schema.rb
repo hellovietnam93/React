@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160321071441) do
+ActiveRecord::Schema.define(version: 20160321153855) do
 
   create_table "comment_hierarchies", force: :cascade do |t|
     t.integer "ancestor_id",   limit: 4, null: false
@@ -34,15 +34,25 @@ ActiveRecord::Schema.define(version: 20160321071441) do
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
-  create_table "likes", force: :cascade do |t|
-    t.integer  "user_id",     limit: 4
-    t.integer  "target_type", limit: 4
-    t.integer  "target_id",   limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+  create_table "like_comments", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "comment_id", limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
   end
 
-  add_index "likes", ["user_id"], name: "index_likes_on_user_id", using: :btree
+  add_index "like_comments", ["comment_id"], name: "index_like_comments_on_comment_id", using: :btree
+  add_index "like_comments", ["user_id"], name: "index_like_comments_on_user_id", using: :btree
+
+  create_table "like_posts", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "post_id",    limit: 4
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+  end
+
+  add_index "like_posts", ["post_id"], name: "index_like_posts_on_post_id", using: :btree
+  add_index "like_posts", ["user_id"], name: "index_like_posts_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|
     t.string   "title",      limit: 255
@@ -97,6 +107,9 @@ ActiveRecord::Schema.define(version: 20160321071441) do
 
   add_foreign_key "comments", "posts"
   add_foreign_key "comments", "users"
-  add_foreign_key "likes", "users"
+  add_foreign_key "like_comments", "comments"
+  add_foreign_key "like_comments", "users"
+  add_foreign_key "like_posts", "posts"
+  add_foreign_key "like_posts", "users"
   add_foreign_key "posts", "users"
 end

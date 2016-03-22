@@ -19,6 +19,7 @@
 //= require i18n/translations
 //= require react
 //= require react_ujs
+//= require constants
 //= require functions
 //= require utils
 //= require components

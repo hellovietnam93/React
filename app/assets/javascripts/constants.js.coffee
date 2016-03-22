@@ -1,0 +1,6 @@
+@Sign_in_path = "http://localhost:3000/users/sign_in"
+@Sign_up_path = "http://localhost:3000/users/sign_up"
+@Sign_out_path = "http://localhost:3000/users/sign_out"
+@Users_path = "http://localhost:3000/users"
+@Records_path = "http://localhost:3000/records"
+@Root_path = "http://localhost:3000"

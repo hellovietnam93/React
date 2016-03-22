@@ -3,7 +3,7 @@
     records: undefined
 
   componentWillMount: ->
-    @serverRequest = $.getJSON('http://localhost:3000/records.json', ((json) ->
+    @serverRequest = $.getJSON("http://localhost:3000/records.json", ((json) ->
       @setState records: json.records
       return
     ).bind(this))
@@ -45,29 +45,29 @@
 
   render: ->
     React.DOM.div
-      className: 'records'
+      className: "records"
 
       React.DOM.h2
-        className: 'title'
-        I18n.t('records.all')
+        className: "title"
+        I18n.t("records.all")
 
       React.DOM.div
-        className: 'row'
-        React.createElement AmountBox, type: 'success', amount: @credits(), text: I18n.t('records.headers.credit')
-        React.createElement AmountBox, type: 'danger', amount: @debits(), text: I18n.t('records.headers.debit')
-        React.createElement AmountBox, type: 'info', amount: @balance(), text: I18n.t('records.headers.balance')
+        className: "row"
+        React.createElement AmountBox, type: "success", amount: @credits(), text: I18n.t("records.headers.credit")
+        React.createElement AmountBox, type: "danger", amount: @debits(), text: I18n.t("records.headers.debit")
+        React.createElement AmountBox, type: "info", amount: @balance(), text: I18n.t("records.headers.balance")
 
       React.createElement RecordForm, handleNewRecord: @addRecord
       React.DOM.hr null
 
       React.DOM.table
-        className: 'table table-bordered'
+        className: "table table-bordered"
         React.DOM.thead null,
           React.DOM.tr null,
-            React.DOM.th null, I18n.t('records.headers.date')
-            React.DOM.th null, I18n.t('records.headers.title')
-            React.DOM.th null, I18n.t('records.headers.amount')
-            React.DOM.th null, I18n.t('application.action')
+            React.DOM.th null, I18n.t("records.headers.date")
+            React.DOM.th null, I18n.t("records.headers.title")
+            React.DOM.th null, I18n.t("records.headers.amount")
+            React.DOM.th null, I18n.t("application.action")
         React.DOM.tbody null,
           unless @state.records is undefined
             for record in @state.records

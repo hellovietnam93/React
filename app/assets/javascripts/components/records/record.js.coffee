@@ -13,9 +13,9 @@
       date: ReactDOM.findDOMNode(@refs.date).value
       amount: ReactDOM.findDOMNode(@refs.amount).value
     $.ajax
-      method: 'PUT'
-      url: "/records/#{@props.record.id}"
-      dataType: 'JSON'
+      method: "PUT"
+      url: Records_path + @props.record.id
+      dataType: "JSON"
       data:
         record: data
         authenticity_token: getMetaContent("csrf-token")
@@ -26,11 +26,11 @@
   handleDelete: (e) ->
     e.preventDefault()
     $.ajax
-      method: 'DELETE'
-      url: "/records/#{@props.record.id}"
+      method: "DELETE"
+      url: Records_path + @props.record.id
       data:
         authenticity_token: getMetaContent("csrf-token")
-      dataType: 'JSON'
+      dataType: "JSON"
       success: () =>
         @props.handleDeleteRecord @props.record
 
@@ -41,43 +41,43 @@
       React.DOM.td null, amountFormat(@props.record.amount)
       React.DOM.td null,
         React.DOM.a
-          className: 'btn btn-default'
+          className: "btn btn-default"
           onClick: @handleToggle
-          I18n.t('records.actions.edit')
+          I18n.t("records.actions.edit")
         React.DOM.a
-          className: 'btn btn-danger'
+          className: "btn btn-danger"
           onClick: @handleDelete
-          I18n.t('records.actions.delete')
+          I18n.t("records.actions.delete")
 
   recordForm: ->
     React.DOM.tr null,
       React.DOM.td null,
         React.DOM.input
-          className: 'form-control'
-          type: 'text'
+          className: "form-control"
+          type: "text"
           defaultValue: @props.record.date
-          ref: 'date'
+          ref: "date"
       React.DOM.td null,
         React.DOM.input
-          className: 'form-control'
-          type: 'text'
+          className: "form-control"
+          type: "text"
           defaultValue: @props.record.title
-          ref: 'title'
+          ref: "title"
       React.DOM.td null,
         React.DOM.input
-          className: 'form-control'
-          type: 'number'
+          className: "form-control"
+          type: "number"
           defaultValue: @props.record.amount
-          ref: 'amount'
+          ref: "amount"
       React.DOM.td null,
         React.DOM.a
-          className: 'btn btn-default'
+          className: "btn btn-default"
           onClick: @handleEdit
-          I18n.t('records.actions.update')
+          I18n.t("records.actions.update")
         React.DOM.a
-          className: 'btn btn-danger'
+          className: "btn btn-danger"
           onClick: @handleToggle
-          I18n.t('records.actions.cancel')
+          I18n.t("records.actions.cancel")
 
   render: ->
     if @state.edit

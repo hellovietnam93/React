@@ -22,6 +22,11 @@
     React.DOM.ul
       className: "nav navbar-nav navbar-right"
       React.DOM.li
+        className: "posts"
+        React.DOM.a
+          href: Posts_path
+          I18n.t("posts.post")
+      React.DOM.li
         className: "users"
         React.DOM.a
           href: Users_path

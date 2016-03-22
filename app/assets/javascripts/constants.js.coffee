@@ -4,3 +4,5 @@
 @Users_path = "http://localhost:3000/users"
 @Records_path = "http://localhost:3000/records"
 @Root_path = "http://localhost:3000"
+@Posts_path = "http://localhost:3000/posts"
+@Api_posts_path = "http://localhost:3000/api/posts"

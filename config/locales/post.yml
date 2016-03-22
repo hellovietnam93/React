@@ -1,0 +1,8 @@
+en:
+  posts:
+    post: "Posts"
+    headers:
+      title: "Title"
+      content: "Content"
+    actions:
+      create: "Create post"

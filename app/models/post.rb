@@ -14,10 +14,18 @@ class Post < ActiveRecord::Base
         },
         comments:
         {
-          except: [:created_at, :post_id, :parent_id],
+          except: [:created_at, :parent_id],
           include: {
-            children: {except: [:created_at, :post_id]},
-            user: {except: [:created_at, :updated_at]}
+            children:
+            {
+              except: [:created_at, :post_id],
+              include: {
+                user: {except: :updated_at},
+                like_comments: {except: :created_at}
+              }
+            },
+            user: {except: :updated_at},
+            like_comments: {except: :created_at}
           }
         },
         like_posts:

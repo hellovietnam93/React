@@ -6,5 +6,7 @@ class CreateLikeComments < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :like_comments, [:user_id, :comment_id], unique: true
   end
 end

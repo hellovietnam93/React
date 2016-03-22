@@ -27,7 +27,7 @@
       React.createElement CommentForm, handleNewComment: @addComment, comment: @props.parent
 
   render: ->
-    if @props.parent == undefined
+    if @props.post
       @parentRow()
     else
       @childrenRow()

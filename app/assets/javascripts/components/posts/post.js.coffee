@@ -32,6 +32,7 @@
             className: "dropdown-menu"
             React.DOM.li null
               React.DOM.a
+                href: ""
                 onClick: @handleDelete
                 I18n.t("posts.actions.delete")
         React.DOM.div
@@ -43,7 +44,7 @@
         React.DOM.p
           className: "content"
           @props.post.content
-        React.createElement Likes, likes: @props.post.like_posts
+        React.createElement LikePosts, likes: @props.post.like_posts, post: @props.post
         React.DOM.a
           className: "collapsed"
           "data-toggle": "collapse"

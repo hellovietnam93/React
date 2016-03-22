@@ -71,6 +71,7 @@
           React.DOM.li
             className: "sign-out"
             React.DOM.a
+              href: " "
               onClick: @handleSignout
               React.DOM.i
                 className: "fa fa-sign-out fa-tw"

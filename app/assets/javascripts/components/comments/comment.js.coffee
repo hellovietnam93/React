@@ -1,4 +1,15 @@
 @Comment = React.createClass
+  handleDelete: (e) ->
+    e.preventDefault()
+    $.ajax
+      method: "DELETE"
+      url: Comments_path + "/" + @props.comment.id
+      data:
+        authenticity_token: getMetaContent("csrf-token")
+      dataType: "JSON"
+      success: () =>
+        @props.handleDeleteComment @props.comment
+
   render: ->
     React.DOM.blockquote
       id: "comment-" + @props.comment.id
@@ -7,6 +18,21 @@
           React.DOM.a
             href: Users_path + "/" + @props.comment.user_id
             @props.comment.user.username
+          React.DOM.span
+            className: "pull-right dropdown"
+            React.DOM.a
+              className: "dropdown-toggle"
+              href: " "
+              "data-toggle": "dropdown"
+              "aria-expanded": false
+              React.DOM.i
+                className: "fa fa-caret-down fa-fw"
+            React.DOM.ul
+              className: "dropdown-menu"
+              React.DOM.li null
+                React.DOM.a
+                  onClick: @handleDelete
+                  I18n.t("comments.actions.delete")
         React.DOM.span
           className: "content"
           " " + @props.comment.content

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:index, :show]
   resources :posts
+  resources :comments
 
   namespace :api, defaults: {format: "json"} do
     devise_for :users, only: :session

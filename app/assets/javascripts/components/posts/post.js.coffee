@@ -55,4 +55,4 @@
         id: "comments-post-" + @props.post.id
         className: "panel-footer collapse"
         "aria-expanded": false
-        React.createElement Comments, comments: @props.post.comments
+        React.createElement Comments, comments: @props.post.comments, post: @props.post

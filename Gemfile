@@ -18,6 +18,7 @@ gem "active_model_serializers"
 gem "thin"
 gem "font-awesome-rails"
 gem "closure_tree"
+gem "simple_token_authentication"
 
 group :development, :test do
   gem "pry"

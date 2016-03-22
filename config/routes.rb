@@ -1,3 +1,5 @@
+require "api_constraints"
+
 Rails.application.routes.draw do
   devise_for :users
   scope :auth do
@@ -8,4 +10,11 @@ Rails.application.routes.draw do
   root "records#index"
 
   resources :users, only: [:index, :show]
+
+  namespace :api, defaults: {format: "json"} do
+    devise_for :users, only: :session
+    scope module: :v1, constraints: ApiConstraints.new(version: 1, default: true) do
+      resources :posts, only: :index
+    end
+  end
 end

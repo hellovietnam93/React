@@ -6,3 +6,4 @@ en:
       content: "Content"
     actions:
       create: "Create post"
+      delete: "Delete post"

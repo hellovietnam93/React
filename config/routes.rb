@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   root "records#index"
 
   resources :users, only: [:index, :show]
+  resources :posts
 
   namespace :api, defaults: {format: "json"} do
     devise_for :users, only: :session

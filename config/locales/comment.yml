@@ -1,5 +1,8 @@
 en:
   comments:
+    headers:
+      content: "Write comment ..."
     actions:
       comment: "Comment"
       reply: "Reply"
+      delete: "Delete Comment"

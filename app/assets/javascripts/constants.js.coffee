@@ -5,4 +5,5 @@
 @Records_path = "http://localhost:3000/records"
 @Root_path = "http://localhost:3000"
 @Posts_path = "http://localhost:3000/posts"
+@Comments_path = "http://localhost:3000/comments"
 @Api_posts_path = "http://localhost:3000/api/posts"

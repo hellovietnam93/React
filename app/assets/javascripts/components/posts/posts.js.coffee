@@ -24,7 +24,7 @@
             className: "col-lg-8 col-lg-offset-2"
             React.createElement PostForm
         React.DOM.hr null
-        React.DOM.ul null
+        React.DOM.div null
           unless @state.posts is null
             for post in @state.posts
               React.createElement Post, key: post.id, post: post

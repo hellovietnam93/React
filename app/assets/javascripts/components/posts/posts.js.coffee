@@ -9,6 +9,17 @@
     ).bind(this))
     return
 
+  addPost: (post) ->
+    unless @state.posts is undefined
+      posts = React.addons.update(@state.posts, {$push: [post]})
+      @setState posts: posts
+
+  deletePost: (post) ->
+    unless @state.posts is undefined
+      index = @state.posts.indexOf post.post
+      posts = React.addons.update(@state.posts, {$splice: [[index, 1]]})
+      @replaceState posts: posts
+
   render: ->
     React.DOM.div
       className: "row"
@@ -22,9 +33,9 @@
           className: "row"
           React.DOM.div
             className: "col-lg-8 col-lg-offset-2"
-            React.createElement PostForm
+            React.createElement PostForm, handleNewPost: @addPost
         React.DOM.hr null
         React.DOM.div null
           unless @state.posts is null
             for post in @state.posts
-              React.createElement Post, key: post.id, post: post
+              React.createElement Post, key: post.id, post: post, handleDeletePost: @deletePost

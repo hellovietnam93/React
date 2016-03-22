@@ -14,7 +14,7 @@
       amount: ReactDOM.findDOMNode(@refs.amount).value
     $.ajax
       method: "PUT"
-      url: Records_path + @props.record.id
+      url: Records_path + "/" + @props.record.id
       dataType: "JSON"
       data:
         record: data
@@ -27,7 +27,7 @@
     e.preventDefault()
     $.ajax
       method: "DELETE"
-      url: Records_path + @props.record.id
+      url: Records_path + "/" + @props.record.id
       data:
         authenticity_token: getMetaContent("csrf-token")
       dataType: "JSON"

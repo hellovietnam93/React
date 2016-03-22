@@ -2,6 +2,7 @@
     getInitialState: ->
       title: ""
       content: ""
+      user_id: getAuthData().auth.user.id
 
     handleChange: (e) ->
       name = e.target.name
@@ -10,14 +11,18 @@
     valid: ->
       @state.title && @state.content
 
+    handleSubmit: (e) ->
+      e.preventDefault()
+      $.post Posts_path, {post: @state, authenticity_token: getMetaContent("csrf-token")}, (data) =>
+        @props.handleNewPost data
+        @setState @getInitialState()
+      , "JSON"
+
     render: ->
       React.DOM.form
         className: "new_post"
         id: "new_post"
-        React.DOM.input
-          type: "hidden"
-          name: "user_id"
-          value: getAuthData().auth.user.id
+        onSubmit: @handleSubmit
         React.DOM.div
           className: "form-group"
           React.DOM.input
@@ -29,7 +34,7 @@
             onChange: @handleChange
         React.DOM.div
           className: "form-group"
-          React.DOM.input
+          React.DOM.textarea
             type: "text"
             className: "form-control"
             placeholder: I18n.t("posts.headers.content")

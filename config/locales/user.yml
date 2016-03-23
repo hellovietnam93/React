@@ -1,6 +1,6 @@
 en:
   users:
-    user: "Users"
+    user: "Friends"
     titles:
       sign_in: "Sign in"
       sign_up: "Sign up"
@@ -13,3 +13,9 @@ en:
       password: "Password"
       remember_me: "Remember me"
       password_confirmation: "Password Confirmation"
+      reply_request: "Answer %{number} invite your friends"
+      someone_know: "People you may know"
+    actions:
+      add_friend: "Add friend"
+      accept_request: "Accept request"
+      remove_request: "Remove"

@@ -1,11 +1,8 @@
 class UsersController < ApplicationController
-  load_and_authorize_resource
+  load_and_authorize_resource except: :index
 
   def index
-    respond_to do |format|
-      format.html
-      format.json {render json: @users}
-    end
+    @users = JSON.parse User.not_friends(current_user.id).to_json
   end
 
   def show

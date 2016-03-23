@@ -14,6 +14,8 @@ Rails.application.routes.draw do
   resources :comments
   resources :like_comments, only: [:create, :destroy]
   resources :like_posts, only: [:create, :destroy]
+  resources :relationships, only: [:create, :destroy]
+  resources :friend_requests, only: [:create, :destroy]
 
   namespace :api, defaults: {format: "json"} do
     devise_for :users, only: :session

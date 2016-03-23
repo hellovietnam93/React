@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160322010641) do
+ActiveRecord::Schema.define(version: 20160323080706) do
 
   create_table "comment_hierarchies", force: :cascade do |t|
     t.integer "ancestor_id",   limit: 4, null: false
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(version: 20160322010641) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id", using: :btree
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
+
+  create_table "friend_requests", force: :cascade do |t|
+    t.integer  "requester_id", limit: 4
+    t.integer  "requested_id", limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "friend_requests", ["requested_id"], name: "index_friend_requests_on_requested_id", using: :btree
+  add_index "friend_requests", ["requester_id", "requested_id"], name: "index_friend_requests_on_requester_id_and_requested_id", unique: true, using: :btree
+  add_index "friend_requests", ["requester_id"], name: "index_friend_requests_on_requester_id", using: :btree
 
   create_table "like_comments", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
@@ -78,7 +89,6 @@ ActiveRecord::Schema.define(version: 20160322010641) do
   create_table "relationships", force: :cascade do |t|
     t.integer  "follower_id", limit: 4
     t.integer  "followed_id", limit: 4
-    t.integer  "status",      limit: 4
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
   end

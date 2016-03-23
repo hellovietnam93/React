@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   load_and_authorize_resource except: :index
 
   def index
-
+    @posts = JSON.parse Post.all.to_json
   end
 
   def create

@@ -18,6 +18,7 @@
           React.DOM.i
             className: "fa fa-sign-in fa-tw"
           " " + I18n.t("users.titles.sign_in")
+
   sign_in: ->
     React.DOM.ul
       className: "nav navbar-nav navbar-right"
@@ -76,6 +77,7 @@
               React.DOM.i
                 className: "fa fa-sign-out fa-tw"
               " " + I18n.t("users.titles.sign_out")
+
   render: ->
     React.DOM.nav
       className: "navbar navbar-default navbar-static-top"

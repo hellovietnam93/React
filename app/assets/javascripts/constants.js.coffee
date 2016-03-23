@@ -6,4 +6,6 @@
 @Root_path = "http://localhost:3000"
 @Posts_path = "http://localhost:3000/posts"
 @Comments_path = "http://localhost:3000/comments"
+@LikeComments_path = "http://localhost:3000/like_comments"
+@LikePosts_path = "http://localhost:3000/like_posts"
 @Api_posts_path = "http://localhost:3000/api/posts"

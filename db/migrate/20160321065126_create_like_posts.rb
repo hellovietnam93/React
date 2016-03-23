@@ -6,5 +6,7 @@ class CreateLikePosts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
+
+    add_index :like_posts, [:user_id, :post_id], unique: true
   end
 end

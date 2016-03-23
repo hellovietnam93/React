@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 20160322010641) do
   end
 
   add_index "like_comments", ["comment_id"], name: "index_like_comments_on_comment_id", using: :btree
+  add_index "like_comments", ["user_id", "comment_id"], name: "index_like_comments_on_user_id_and_comment_id", unique: true, using: :btree
   add_index "like_comments", ["user_id"], name: "index_like_comments_on_user_id", using: :btree
 
   create_table "like_posts", force: :cascade do |t|
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 20160322010641) do
   end
 
   add_index "like_posts", ["post_id"], name: "index_like_posts_on_post_id", using: :btree
+  add_index "like_posts", ["user_id", "post_id"], name: "index_like_posts_on_user_id_and_post_id", unique: true, using: :btree
   add_index "like_posts", ["user_id"], name: "index_like_posts_on_user_id", using: :btree
 
   create_table "posts", force: :cascade do |t|

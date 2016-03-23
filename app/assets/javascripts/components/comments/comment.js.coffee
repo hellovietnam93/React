@@ -31,13 +31,14 @@
               className: "dropdown-menu"
               React.DOM.li null
                 React.DOM.a
+                  href: ""
                   onClick: @handleDelete
                   I18n.t("comments.actions.delete")
         React.DOM.span
           className: "content"
           " " + @props.comment.content
-        React.createElement Likes, likes: @props.comment.like_comments
-        if @props.comment.parent_id == undefined
+        React.createElement LikeComments, likes: @props.comment.like_comments, comment: @props.comment
+        unless @props.comment.parent_id
           React.DOM.a
             className: "collapsed"
             "data-toggle": "collapse"
@@ -47,5 +48,5 @@
         React.DOM.span
           className: "timestamp"
           @props.comment.updated_at
-        if @props.comment.parent_id == undefined
+        unless @props.comment.parent_id
           React.createElement Comments, comments: @props.comment.children, parent: @props.comment

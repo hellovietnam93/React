@@ -1,4 +1,28 @@
 @Post = React.createClass
+  getInitialState: ->
+    edit: false
+
+  handleToggle: (e) ->
+    e.preventDefault()
+    @setState edit: !@state.edit
+
+  handleEdit: (e) ->
+    e.preventDefault()
+    data =
+      title: ReactDOM.findDOMNode(@refs.title).value
+      date: ReactDOM.findDOMNode(@refs.date).value
+      amount: ReactDOM.findDOMNode(@refs.amount).value
+    $.ajax
+      method: "PUT"
+      url: Records_path + "/" + @props.record.id
+      dataType: "JSON"
+      data:
+        record: data
+        authenticity_token: getMetaContent("csrf-token")
+      success: (data) =>
+        @setState edit: false
+        @props.handleEditRecord @props.record, data
+
   handleDelete: (e) ->
     e.preventDefault()
     $.ajax
@@ -30,7 +54,14 @@
               className: "fa fa-caret-down fa-fw"
           React.DOM.ul
             className: "dropdown-menu"
-            React.DOM.li null
+            React.DOM.li
+              className: "edit"
+              React.DOM.a
+                href: ""
+                onClick: @handleDelete
+                I18n.t("posts.actions.edit")
+            React.DOM.li
+              className: "delete"
               React.DOM.a
                 href: ""
                 onClick: @handleDelete

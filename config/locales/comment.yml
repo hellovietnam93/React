@@ -5,4 +5,5 @@ en:
     actions:
       comment: "Comment"
       reply: "Reply"
-      delete: "Delete Comment"
+      delete: "Delete comment"
+      edit: "Edit commetn"

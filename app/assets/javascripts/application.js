@@ -17,10 +17,10 @@
 //= require i18n
 //= require i18n.js
 //= require i18n/translations
+//= require functions
 //= require react
 //= require react_ujs
 //= require constants
-//= require functions
 //= require utils
 //= require components
 

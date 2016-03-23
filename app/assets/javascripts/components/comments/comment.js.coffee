@@ -13,8 +13,10 @@
   render: ->
     React.DOM.blockquote
       id: "comment-" + @props.comment.id
-      React.DOM.p null
-        React.DOM.div null
+      React.DOM.div
+        className: "contain"
+        React.DOM.div
+          className: "username"
           React.DOM.a
             href: Users_path + "/" + @props.comment.user_id
             @props.comment.user.username
@@ -29,14 +31,21 @@
                 className: "fa fa-caret-down fa-fw"
             React.DOM.ul
               className: "dropdown-menu"
-              React.DOM.li null
+              React.DOM.li
+                className: "edit"
+                React.DOM.a
+                  href: ""
+                  onClick: @handleDelete
+                  I18n.t("comments.actions.edit")
+              React.DOM.li
+                className: "delete"
                 React.DOM.a
                   href: ""
                   onClick: @handleDelete
                   I18n.t("comments.actions.delete")
-        React.DOM.span
-          className: "content"
-          " " + @props.comment.content
+          React.DOM.span
+            className: "content"
+            " " + @props.comment.content
         React.createElement LikeComments, likes: @props.comment.like_comments, comment: @props.comment
         unless @props.comment.parent_id
           React.DOM.a

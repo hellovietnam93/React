@@ -2,7 +2,7 @@
     getInitialState: ->
       title: ""
       content: ""
-      user_id: getAuthData().auth.user.id
+      user_id: Current_user.id
 
     handleChange: (e) ->
       name = e.target.name

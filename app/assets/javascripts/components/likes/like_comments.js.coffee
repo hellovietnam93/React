@@ -1,7 +1,7 @@
 @LikeComments = React.createClass
   getInitialState: ->
     likes: @props.likes
-    user_id: getAuthData().auth.user.id
+    user_id: Current_user.id
     comment_id: @props.comment.id
 
   addLike: (like) ->
@@ -24,7 +24,7 @@
         dataType: "JSON"
         success: () =>
           @deleteLike @liked()
-          @setState user_id: getAuthData().auth.user.id
+          @setState user_id: Current_user.id
           @setState comment_id: @props.comment.id
     else
       $.post LikeComments_path, {like_comment: @state, authenticity_token: getMetaContent("csrf-token")}, (data) =>

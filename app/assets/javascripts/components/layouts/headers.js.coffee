@@ -45,7 +45,7 @@
           "aria-expanded": false
           React.DOM.i
             className: "fa fa-user fa-fw"
-          getAuthData().auth.user.email
+          Current_user.email
           React.DOM.i
             className: "fa fa-caret-down"
         React.DOM.ul
@@ -55,7 +55,7 @@
           React.DOM.li
             className: "profile"
             React.DOM.a
-              href: Users_path + "/" + getAuthData().auth.user.id
+              href: Users_path + "/" + Current_user.id
               React.DOM.i
                 className: "fa fa-user fa-tw"
               " " + I18n.t("users.titles.profile")

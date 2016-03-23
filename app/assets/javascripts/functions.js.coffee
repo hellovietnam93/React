@@ -15,5 +15,7 @@
     async: false
     success: ((data) ->
       response = data
+      @Current_user = data.auth.user
+      @User_sign_in = data.auth.signed_in
     ).bind(this)
   response

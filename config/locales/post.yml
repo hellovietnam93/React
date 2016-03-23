@@ -7,3 +7,4 @@ en:
     actions:
       create: "Create post"
       delete: "Delete post"
+      edit: "Edit post"

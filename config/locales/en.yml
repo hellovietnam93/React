@@ -2,6 +2,7 @@ en:
   application:
     base_title: "React"
     action: "Actions"
+    search: "Search ..."
   flashs:
     authentication_fails: "Email, password or combination wrong"
     messages:

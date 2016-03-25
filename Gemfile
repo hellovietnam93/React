@@ -19,6 +19,7 @@ gem "thin"
 gem "font-awesome-rails"
 gem "closure_tree"
 gem "simple_token_authentication"
+gem "underscore-rails"
 
 group :development, :test do
   gem "pry"

@@ -19,6 +19,11 @@
     React.DOM.tr
       className: "user-" + @props.request.id
       React.DOM.td
+        className: "username"
+        React.DOM.a
+          href: Users_path + @props.request.id
+          @props.request.username
+      React.DOM.td
         className: "email"
         React.DOM.a
           href: Users_path + @props.request.id

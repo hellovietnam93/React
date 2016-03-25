@@ -19,3 +19,22 @@
       @User_sign_in = data.auth.signed_in
     ).bind(this)
   response
+
+@findIndexByKeyValue = (arraytosearch, key, valuetosearch) ->
+  i = 0
+  while i < arraytosearch.length
+    if arraytosearch[i][key] == valuetosearch
+      return i
+    i++
+  null
+
+@searchByKeyValue = (arraytosearch, key, value) ->
+  results = []
+  if value
+    arraytosearch.map (item) ->
+      result = item[key].toLowerCase()
+      if result.indexOf(value.toLowerCase()) != -1
+        results.push item
+  else
+    results = arraytosearch
+  results

@@ -23,6 +23,7 @@
 //= require constants
 //= require utils
 //= require components
+//= require underscore
 
 $(document).on("page:change", function() {
   set_timetout();

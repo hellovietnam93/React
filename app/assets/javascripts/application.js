@@ -21,6 +21,7 @@
 //= require react
 //= require react_ujs
 //= require constants
+//= require bundle
 //= require utils
 //= require components
 //= require underscore
